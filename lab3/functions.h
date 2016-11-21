@@ -33,3 +33,25 @@ int prioritet(char s)
 	else 
 		return 1;
 }
+
+int thisoperator(char temp)
+{
+	if (temp == '*')
+		return 3;
+	if (temp == '/')
+		return 2;
+	if (temp == '+')
+		return 1;
+	else 
+		return 0;
+}
+
+float transformation(char t1)
+{
+	float result;
+	int t2;
+	t2 = static_cast<int>(t1) - 48;
+	result = static_cast<float>(t2);
+	return result;
+}
+

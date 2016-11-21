@@ -13,6 +13,12 @@ class Queue
 	int n;
 	int si,ei;
 		public:
+
+	int getsize()
+	{
+		return n;
+	}
+
 	Queue(int n)
 	{
 		p = new char [n];
