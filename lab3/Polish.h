@@ -11,11 +11,11 @@ using namespace std;
 
 
 
-void ring(char *str)
+Queue* Polishz(char *str)
 {
 	int pr;
 	int n = StringSize(str);
-	Queue temp(n+2);
+	Queue * temp = new Queue(n+2);
 	Stack tempStack(n);
 	char p;
 	int sym;
@@ -23,7 +23,7 @@ void ring(char *str)
 	{
 		sym = symvol(str[i]);
 		if (sym == 0)
-			temp.push(str[i]);
+			temp->push(str[i]);
 		else
 		{
 			pr = prioritet(str[i]);
@@ -34,7 +34,7 @@ void ring(char *str)
 						tempStack.push(str[i]);
 					else
 					{
-						temp.push(tempStack.pop());
+						temp->push(tempStack.pop());
 						tempStack.push(str[i]);
 					}
 					break;
@@ -47,7 +47,7 @@ void ring(char *str)
 						int p = tempStack.pop();
 						if (prioritet(p) == 2)
 						{
-							temp.push(p);
+							temp->push(p);
 							tempStack.push(str[i]);
 						}
 						else
@@ -62,7 +62,8 @@ void ring(char *str)
 	}
 	while (tempStack.isEmpty()!=true)
 	{
-		temp.push(tempStack.pop());
+		temp->push(tempStack.pop());
 	}
-temp.show();
+//temp.show();
+return temp;
 }
