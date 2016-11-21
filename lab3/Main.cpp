@@ -6,7 +6,7 @@
 #include <iostream> 
 #include <string> 
 #include "functions.h"
-#include "Polish.h"
+#include "PolishRecord.h"
 using namespace std;
 
 int main()
@@ -15,10 +15,10 @@ int main()
     std::cout << "Inter a string " << std::endl; 
     getline(std::cin,str); 
     std::cout << str << std::endl; */
-	Queue *p;
+	Queue *polish;
 	char *str= new char[];
 	cin >> str;
-	p = Polishz(str);
+	polish = PolishRecord(str);
 	return 0;
 };
 

@@ -11,7 +11,7 @@ using namespace std;
 
 
 
-Queue* Polishz(char *str)
+Queue* PolishRecord(char *str)
 {
 	int pr;
 	int n = StringSize(str);
