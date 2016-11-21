@@ -23,28 +23,28 @@ class Queue
 
 	bool isEmpty()
 	{
-		return (ei+1)%n == si;
+		return (si+1)%n == ei;
 	}
 
 	bool isFull()
 	{
-		return (ei)%n == si;
+		return (si+2)%n == ei;
 	}
 
-	void push(int m)
+	void push(char m)
 	{
 		if (isFull())
 			throw "exception";
-		ei = (ei + 1)% n;
-		p[ei] = m;
+		si = (si + 1)% n;
+		p[si] = m;
 	}
 
 	int pop()
 	{
 		if (isEmpty())
 			throw "Queue is Empty";
-		int temp = p[si];
-		si = (si + 1)% n;
+		int temp = p[ei];
+		ei = (ei + 1)% n;
 		return temp;
 	}
 	void show()
