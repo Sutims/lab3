@@ -11,6 +11,8 @@ using namespace std;
 
 float calculation(Queue *temp)
 {
+	float denominator;
+	float numerator;
 	float temprecord;
 	char tempsymvol;
 	int size = temp->getsize();
@@ -44,7 +46,9 @@ float calculation(Queue *temp)
 				resultStack.push(temprecord);
 				break;
 			case 2:
-				temprecord = resultStack.pop() / resultStack.pop();
+				denominator = resultStack.pop();
+				numerator = resultStack.pop();
+				temprecord = numerator / denominator;
 				resultStack.push(temprecord);
 				break;
 			case 3:

@@ -44,7 +44,7 @@ Queue* PolishRecord(char *str)
 						tempStack.push(str[i]);
 					else
 					{
-						int p = tempStack.pop();
+						p = tempStack.pop();
 						if (prioritet(p) == 2)
 						{
 							temp->push(p);
@@ -64,6 +64,6 @@ Queue* PolishRecord(char *str)
 	{
 		temp->push(tempStack.pop());
 	}
-//temp.show();
+temp->show();
 return temp;
 }

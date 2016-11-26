@@ -99,7 +99,7 @@ public:
 		mem[ind] = val;
 	}
 
-	int pop()
+	float pop()
 	{
 		if (isEmpty())
 			throw "stack is Empty";
