@@ -7,35 +7,73 @@
 #include <string> 
 #include <conio.h>
 #include "functions.h"
+
 using namespace std;
 
 
 
-Queue* PolishRecord(char *str)
+Queue* PolishRecord(string str)
 {
+	std::string tempstr; 
+	string tempbracket;
 	int pr;
-	int n = StringSize(str);
+	int n = str.length();
 	Queue * temp = new Queue(n+2);
 	Stack tempStack(n);
-	char p;
+	char peremen1;
+	std::string peremen2;
 	int sym;
 	for (int i = 0;i < n; i++)
 	{
 		sym = symvol(str[i]);
 		if (sym == 0)
-			temp->push(str[i]);
+		{
+			tempstr = str[i];
+			while ((str[i+1] == '0')||(str[i+1] == '1')||(str[i+1] == '2')||(str[i+1] == '3')||(str[i+1] == '4')||(str[i+1] == '5')||(str[i+1] == '6')||(str[i+1] == '7')||(str[i+1] == '8')||(str[i+1] == '9'))
+			{
+				tempstr += str[i+1];
+				i++;
+			}
+			temp->push(tempstr);
+			
+		}
 		else
 		{
 			pr = prioritet(str[i]);
 			switch (pr)
 			{
+			case 0:
+				if (str[i] == '(')
+				{
+					tempStack.push(str[i]);
+				}
+				else 
+				{
+					tempbracket = tempStack.pop();
+					while (tempbracket != "(" )
+					{
+						temp->push(tempbracket);
+						tempbracket = tempStack.pop();
+					}
+				}
+				break;
 			case 1:
 					if (tempStack.isEmpty())
 						tempStack.push(str[i]);
 					else
 					{
-						temp->push(tempStack.pop());
-						tempStack.push(str[i]);
+						peremen1 = tempStack.pop();
+						if (peremen1 == '(')
+						{
+							tempStack.push(peremen1);
+							tempStack.push(str[i]);
+						}
+						else
+						{
+							peremen2[0] = peremen1;
+							temp->push(peremen2);
+							tempStack.push(str[i]);
+						}
 					}
 					break;
 
@@ -44,15 +82,16 @@ Queue* PolishRecord(char *str)
 						tempStack.push(str[i]);
 					else
 					{
-						p = tempStack.pop();
-						if (prioritet(p) == 2)
+						peremen1 = tempStack.pop();
+						if (prioritet(peremen1) == 2)
 						{
-							temp->push(p);
+							peremen2[0] = peremen1;
+							temp->push(peremen2);
 							tempStack.push(str[i]);
 						}
 						else
 						{
-						tempStack.push(p);
+						tempStack.push(peremen1);
 						tempStack.push(str[i]);
 						}
 					}
@@ -62,7 +101,11 @@ Queue* PolishRecord(char *str)
 	}
 	while (tempStack.isEmpty()!=true)
 	{
-		temp->push(tempStack.pop());
+		peremen2 += tempStack.pop();
+	//	cout<<peremen2;
+		std::cout << peremen2 << std::endl; 
+		temp->push(peremen2);
+		peremen2 ="";
 	}
 temp->show();
 return temp;

@@ -6,6 +6,7 @@
 #include <iostream> 
 #include <string> 
 #include <conio.h>
+
 using namespace std;
 
 int StringSize(char *str)
@@ -30,28 +31,46 @@ int prioritet(char s)
 {
 	if((s == '*')||(s == '/'))
 		return 2;
-	else 
+	if((s == '+')||(s == '-'))
 		return 1;
+	else
+		return 0;
 }
 
-int thisoperator(char temp)
+int thisoperator(string temp)
 {
-	if (temp == '*')
+	if (temp == "*")
 		return 3;
-	if (temp == '/')
+	if (temp == "/")
 		return 2;
-	if (temp == '+')
+	if (temp == "+")
 		return 1;
 	else 
 		return 0;
 }
 
-float transformation(char t1)
+float transformation(string t1)
 {
+	char *temp;
+	temp =  new char[t1.length()];
 	float result;
+	for (int i = 0; i< t1.length();i++)
+	{
+		temp[i] = t1[i];
+	}
 	int t2;
-	t2 = static_cast<int>(t1) - 48;
+	t2 = atoi(temp);
 	result = static_cast<float>(t2);
 	return result;
 }
 
+
+int symvolreserv(string s)
+{
+	if((s == "*")||(s == "-")||(s == "/")||(s == "+"))
+		return 1;
+	else
+		return 0;
+}
+// if((s == "0")||(s == "1")||(s == "2")||(s == "3")||(s == "4")||(s == "5")||(s == "6")||(s == "7")||(s == "")||(s == '9'))
+	 // if((s == '0')||(s == '1')||(s == '2')||(s == '3')||(s == '4')||(s == '5')||(s == '6')||(s == '7')||(s == '8')||(s == '9'))

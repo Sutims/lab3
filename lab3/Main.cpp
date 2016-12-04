@@ -12,28 +12,22 @@ using namespace std;
 
 int main()
 {
-/*	 std::string str; 
+	 std::string str; 
     std::cout << "Inter a string " << std::endl; 
     getline(std::cin,str); 
-    std::cout << str << std::endl; */
+  //  std::cout << str << std::endl; 
 	float result;
 	Queue *polish;
-	floatStack test(10);
+/*	floatStack test(10);
 	char *str= new char[];
-	cin >> str;
-    /* test.push(10.0);
-	test.push(2.0);
-	test.push(3.0);
-	test.push(23.5);
-	float a = test.pop();
-	float b = test.pop();
-	float c = test.pop();
-	float d = test.pop();
-	test.getmem(); */
+	cin >> str; */
+  
 
 	polish = PolishRecord(str);
 	result = calculation(polish);
+	cout<<"\n";
 	cout<<result;
-	return 0;
+	cout<<"\n";
+	return 0; 
 };
 

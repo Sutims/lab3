@@ -7,6 +7,7 @@
 #include <string> 
 #include "functions.h"
 #include "PolishRecord.h"
+
 using namespace std;
 
 float calculation(Queue *temp)
@@ -14,7 +15,7 @@ float calculation(Queue *temp)
 	float denominator;
 	float numerator;
 	float temprecord;
-	char tempsymvol;
+	string tempsymvol;
 	int size = temp->getsize();
 	floatStack resultStack(size);
 	Stack tempStack(size);
@@ -22,7 +23,7 @@ float calculation(Queue *temp)
 	while (temp->isEmpty()!=true)
 	{
 		tempsymvol = temp->pop();
-		sym = symvol(tempsymvol);
+		sym = symvolreserv(tempsymvol);
 		if (sym == 0)
 		{
 			if (tempStack.isFull()!=true)
@@ -38,7 +39,10 @@ float calculation(Queue *temp)
 			switch (Toperator)
 			{
 			case 0:
-				temprecord = resultStack.pop() - resultStack.pop();
+				float a,b;
+				b = resultStack.pop();
+				a = resultStack.pop();
+				temprecord = a-b;
 				resultStack.push(temprecord);
 				break;
 			case 1:

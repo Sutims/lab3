@@ -3,13 +3,14 @@
 #include <stdlib.h>
 #include <string> 
 #include <iostream> 
+
 using namespace std;
 
 
 
 class Queue
 {
-	char *p;
+	string *p;
 	int n;
 	int si,ei;
 		public:
@@ -21,7 +22,7 @@ class Queue
 
 	Queue(int n)
 	{
-		p = new char [n];
+		p = new string [n];
 		this->n = n;
 		ei = 1;
 		si = 0;
@@ -37,7 +38,7 @@ class Queue
 		return (si+2)%n == ei;
 	}
 
-	void push(char m)
+	void push(string m)
 	{
 		if (isFull())
 			throw "exception";
@@ -45,18 +46,18 @@ class Queue
 		p[si] = m;
 	}
 
-	int pop()
+	string pop()
 	{
 		if (isEmpty())
 			throw "Queue is Empty";
-		int temp = p[ei];
+		string temp = p[ei];
 		ei = (ei + 1)% n;
 		return temp;
 	}
 	void show()
 	{
 		for (int i = 0; i < n; i++)
-		printf("%c",p[i]);
+			cout <<p[i];
 	}
 
 /*	friend ostream &operator <<(ostream &v, Queue &ob)
