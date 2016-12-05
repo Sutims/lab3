@@ -70,8 +70,19 @@ Queue* PolishRecord(string str)
 						}
 						else
 						{
-							peremen2[0] = peremen1;
-							temp->push(peremen2);
+							while (prioritet(peremen1) >= 1)
+							{
+								peremen2 = "";
+								peremen2 += peremen1;
+
+								temp->push(peremen2);
+								peremen2 = "";
+								if (tempStack.isEmpty())
+								{
+									break;
+								}
+								peremen1 = tempStack.pop();
+							}
 							tempStack.push(str[i]);
 						}
 					}
@@ -88,6 +99,7 @@ Queue* PolishRecord(string str)
 							peremen2[0] = peremen1;
 							temp->push(peremen2);
 							tempStack.push(str[i]);
+							peremen2 = "";
 						}
 						else
 						{
