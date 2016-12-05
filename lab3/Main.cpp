@@ -23,11 +23,18 @@ int main()
 	cin >> str; */
   
 
-	polish = PolishRecord(str);
-	result = calculation(polish);
+	try{
+		polish = PolishRecord(str);
+		result = calculation(polish);
 	cout<<"\n";
 	cout<<result;
 	cout<<"\n";
+	}
+	catch (...)
+	{
+		cout << "error";
+	}
+	
 	return 0; 
 };
 

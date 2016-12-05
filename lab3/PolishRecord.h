@@ -14,6 +14,10 @@ using namespace std;
 
 Queue* PolishRecord(string str)
 {
+	if (right(str) != true)
+	{
+		throw "string false";
+	}
 	std::string tempstr; 
 	string tempbracket;
 	int pr;
