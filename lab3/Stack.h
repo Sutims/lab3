@@ -68,7 +68,8 @@ public:
 
 	int getCount()
 	{
-		return ind++;
+		int n;
+		return n=ind +1;
 	}
 };
 
@@ -133,6 +134,7 @@ public:
 
 	int getCount()
 	{
-		return ind++;
+		int n;
+		return n=ind +1;
 	}
 };

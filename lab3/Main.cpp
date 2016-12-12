@@ -20,8 +20,10 @@ int main()
 	Queue *polish;
 /*	floatStack test(10);
 	char *str= new char[];
-	cin >> str; */
-  
+	cin >> str; 
+	Stack tempsts(2);
+	tempsts.pop(); */
+
 
 	try{
 		polish = PolishRecord(str);

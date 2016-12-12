@@ -52,6 +52,8 @@ float calculation(Queue *temp)
 			case 2:
 				denominator = resultStack.pop();
 				numerator = resultStack.pop();
+				if ( denominator == 0)
+					throw "denominator = 0";
 				temprecord = numerator / denominator;
 				resultStack.push(temprecord);
 				break;

@@ -24,7 +24,10 @@
     <ClInclude Include="functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="calcul.h">
+    <ClInclude Include="PolishRecord.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Calculation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

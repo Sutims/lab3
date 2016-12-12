@@ -76,8 +76,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="calcul.h" />
+    <ClInclude Include="Calculation.h" />
     <ClInclude Include="functions.h" />
+    <ClInclude Include="PolishRecord.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
